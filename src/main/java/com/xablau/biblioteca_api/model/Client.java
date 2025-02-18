@@ -1,11 +1,11 @@
-package com.xablau.biblioteca_api.entity;
+package com.xablau.biblioteca_api.model;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.UUID;
+import java.util.*;
 
 @Entity
 @Getter
@@ -21,11 +21,13 @@ public class Client {
     @Embedded
     private Address address;
     private String phoneNumber;
-    private BigDecimal balance;
+    private BigDecimal balance = BigDecimal.ZERO;
     //total de livros emprestrados
-    private Integer totalLoanedBooks;
+    private Integer totalLoanedBooks = 0;
     //Multas por atraso na devolução
-    private BigDecimal totalFines;
-    private Boolean activeStatus;
-    private LocalDate registrationDate;
+    private BigDecimal totalFines = BigDecimal.ZERO;
+    private Boolean activeStatus = true;
+    private LocalDate registrationDate = LocalDate.now();
+    @OneToMany(mappedBy = "client")
+    private List<BookLoan> bookLoans = new ArrayList<>();
 }

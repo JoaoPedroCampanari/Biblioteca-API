@@ -1,4 +1,4 @@
-package com.xablau.biblioteca_api.entity;
+package com.xablau.biblioteca_api.model;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -19,9 +19,11 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String name;
+    private Integer age;
+    private String email;
     @Embedded
     private Address address;
-    private Integer totalLoanedBooks;
+    private Integer totalLoanedBooks = 0;
     @ManyToMany(mappedBy = "authors")
     private Set<Book> books = new HashSet<>();
 }

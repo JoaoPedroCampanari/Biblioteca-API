@@ -1,4 +1,4 @@
-package com.xablau.biblioteca_api.entity;
+package com.xablau.biblioteca_api.model;
 
 public enum Category {
     ACTION,

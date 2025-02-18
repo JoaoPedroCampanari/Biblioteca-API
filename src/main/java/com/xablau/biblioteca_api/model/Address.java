@@ -1,4 +1,4 @@
-package com.xablau.biblioteca_api.entity;
+package com.xablau.biblioteca_api.model;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
