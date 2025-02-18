@@ -4,9 +4,11 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.*;
 
 @Entity
+@Table(name = "book_tb")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -21,6 +23,7 @@ public class Book {
     @Enumerated(EnumType.STRING)
     private Category category;
     private Integer quantity;
+    private LocalDate publishedYear;
     private BigDecimal value;
     private Boolean available = true;
     @ManyToMany

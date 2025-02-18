@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.UUID;
 
 @Entity
+@Table(name = "author_tb")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -23,6 +24,7 @@ public class Author {
     private String email;
     @Embedded
     private Address address;
+    //total de livros emprestados
     private Integer totalLoanedBooks = 0;
     @ManyToMany(mappedBy = "authors")
     private Set<Book> books = new HashSet<>();

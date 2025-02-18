@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 @Entity
+@Table(name = "client_tb")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -22,7 +23,7 @@ public class Client {
     private Address address;
     private String phoneNumber;
     private BigDecimal balance = BigDecimal.ZERO;
-    //total de livros emprestrados
+    //total de livros alugados
     private Integer totalLoanedBooks = 0;
     //Multas por atraso na devolução
     private BigDecimal totalFines = BigDecimal.ZERO;
