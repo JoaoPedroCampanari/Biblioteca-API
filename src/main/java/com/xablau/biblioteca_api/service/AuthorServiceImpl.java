@@ -1,4 +1,4 @@
-package com.xablau.biblioteca_api.service.impl;
+package com.xablau.biblioteca_api.service;
 
 import com.xablau.biblioteca_api.dto.authorDtos.AuthorDto;
 import com.xablau.biblioteca_api.model.Author;

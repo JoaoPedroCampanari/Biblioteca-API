@@ -6,7 +6,7 @@ create table author_tb(
     neighborhood varchar(80) not null,
     street varchar(80) not null,
     number varchar(80) not null,
-    totalLoanedBooks INTEGER not null
+    totalLoanedBooks INTEGER not null,
     PRIMARY KEY(id)
 );
 

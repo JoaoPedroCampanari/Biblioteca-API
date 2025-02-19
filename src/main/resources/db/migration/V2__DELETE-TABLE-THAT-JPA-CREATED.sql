@@ -1,0 +1,1 @@
+drop table book_tb_book_loans;
