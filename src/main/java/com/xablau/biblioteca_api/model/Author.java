@@ -1,5 +1,6 @@
 package com.xablau.biblioteca_api.model;
 
+import com.xablau.biblioteca_api.dto.authorDtos.AuthorDtoUpdate;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -28,4 +29,20 @@ public class Author {
     private Integer totalLoanedBooks = 0;
     @ManyToMany(mappedBy = "authors")
     private Set<Book> books = new HashSet<>();
+
+
+    public void atualizarDados(AuthorDtoUpdate update){
+        if (update.name() != null){
+            this.name = update.name();
+        }
+        if (update.age() != null){
+            this.age = update.age();
+        }
+        if (update.email() != null){
+            this.email = update.email();
+        }
+        if (update.addressDto() != null){
+            this.address.atualizarDados(update.addressDto());
+        }
+    }
 }

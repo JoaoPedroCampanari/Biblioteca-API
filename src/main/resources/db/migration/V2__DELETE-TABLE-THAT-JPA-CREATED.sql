@@ -1,1 +1,1 @@
-drop table book_tb_book_loans;
+drop table if exists book_tb_book_loans;
