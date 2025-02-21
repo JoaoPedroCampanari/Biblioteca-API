@@ -52,11 +52,10 @@ public class AuthorServiceImpl implements AuthorService {
     @Transactional
     @Override
     public Author save(AuthorDto authorDto) {
-        if (authorRepository.findByEmail(authorDto.email())){
+        if (authorRepository.existsByEmail(authorDto.email())){
             throw new AuthorEmailAreadyExist("Author email already exist", HttpStatus.CONFLICT);
         }
-        Author author = new Author();
-        BeanUtils.copyProperties(authorDto, author);
+        Author author = new Author(authorDto);
         return authorRepository.save(author);
     }
 
