@@ -19,7 +19,7 @@ public class Address {
     private String street;
     private String number;
 
-    public void atualizarDados(@Valid AddressDto addressDto) {
+    public void atualizarDados(AddressDto addressDto) {
         if (addressDto.neighborhood() != null){
             this.neighborhood = addressDto.neighborhood();
         }

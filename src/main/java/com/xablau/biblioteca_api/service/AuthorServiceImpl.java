@@ -56,6 +56,7 @@ public class AuthorServiceImpl implements AuthorService {
             throw new AuthorEmailAreadyExist("Author email already exist", HttpStatus.CONFLICT);
         }
         Author author = new Author(authorDto);
+
         return authorRepository.save(author);
     }
 

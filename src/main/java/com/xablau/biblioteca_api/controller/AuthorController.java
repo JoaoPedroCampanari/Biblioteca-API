@@ -5,6 +5,7 @@ import com.xablau.biblioteca_api.dto.authorDtos.AuthorDtoUpdate;
 import com.xablau.biblioteca_api.dto.authorDtos.AuthorResponse;
 import com.xablau.biblioteca_api.dto.bookDtos.BookDtoResponse;
 import com.xablau.biblioteca_api.service.interfaceService.AuthorService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -42,12 +43,12 @@ public class AuthorController {
     }
 
     @PostMapping
-    public ResponseEntity<AuthorResponse> save(@RequestBody AuthorDto authorDto){
+    public ResponseEntity<AuthorResponse> save(@RequestBody @Valid AuthorDto authorDto){
         return ResponseEntity.status(HttpStatus.CREATED).body(new AuthorResponse(authorService.save(authorDto)));
     }
 
     @PutMapping
-    public ResponseEntity<AuthorResponse> update(@RequestBody AuthorDtoUpdate authorDtoUpdate){
+    public ResponseEntity<AuthorResponse> update(@RequestBody @Valid AuthorDtoUpdate authorDtoUpdate){
         return ResponseEntity.status(HttpStatus.OK).body(new AuthorResponse(authorService.update(authorDtoUpdate)));
     }
 

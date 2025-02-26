@@ -16,5 +16,6 @@ public record AuthorDto(
         @Email(message = "Email must have valid format")
         String email,
         @Valid
+        @NotNull(message = "Address must not be null")
         AddressDto addressDto) {
 }
