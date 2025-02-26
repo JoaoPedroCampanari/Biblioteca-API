@@ -45,6 +45,9 @@ public class AuthorServiceImpl implements AuthorService {
     public Author update(AuthorDtoUpdate authorDtoUpdate) {
         Author author = authorRepository.findById(authorDtoUpdate.id())
                 .orElseThrow(() -> new AuthorNotFoundException("Author doesn't exist", HttpStatus.NOT_FOUND));
+        if (authorRepository.existsByEmail(authorDtoUpdate.email())){
+            throw new AuthorEmailAreadyExist("Author email already exist", HttpStatus.CONFLICT);
+        }
         author.atualizarDados(authorDtoUpdate);
         return author;
     }

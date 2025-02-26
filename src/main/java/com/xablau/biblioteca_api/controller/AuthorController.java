@@ -52,8 +52,8 @@ public class AuthorController {
         return ResponseEntity.status(HttpStatus.OK).body(new AuthorResponse(authorService.update(authorDtoUpdate)));
     }
 
-    @DeleteMapping
-    public ResponseEntity<String> delete(UUID id){
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> delete(@PathVariable(name = "id") UUID id){
         authorService.deleteById(id);
         return ResponseEntity.status(HttpStatus.OK).body("The author was successfully deleted");
     }
